@@ -1,14 +1,16 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    
-    var str = document.getElementById('keylogger')
-    var str_temp = ''
+document.addEventListener("DOMContentLoaded", (event) => {
+    let keylogger = document.getElementById("keylogger");
+    let onBody = document.body;
 
-    function updateDisplay(val) {
-        str.innerHTML = val;
-    }
+    onBody.addEventListener("keydown", (event) => {
 
-    str.addEventListener('keypress', function keylogger(){
-        str_temp = 'keypress'
-        console.log(str_temp)
+        let letter = event.key;
+
+        if (keylogger.focus) {
+            keylogger.value = keylogger.value + letter;
+        }
+        else {
+            keylogger.value = letter;
+        }
     })
 })
