@@ -1,9 +1,11 @@
-"use strict";
 document.addEventListener('DOMContentLoaded', (event) => {
 
     let btn = document.getElementById('filter')
+    let reset = document.getElementById('reset')
     let select = document.querySelector('select')
     let ul = document.querySelector('ul')
+    let li = document.querySelector('li')
+    var body = document.querySelector('body')
     let typeList = []
     
 
@@ -36,16 +38,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
             let choice = select.selectedIndex;
             let valeur = select.options[choice].value;
             let text = select.options[choice].text;
+            var newul = document.createElement('ul')
+            var ul = document.querySelector('ul')
             
             for (let i = 0; i < response.length ; i++ ){
                 if (text == response[i].type){
-                    console.log(type)
-                    console.log(response[i].type)
+                    body.append(newul)
                     let NewLi = document.createElement('li')
                     NewLi.innerHTML =response[i].id + ' ' + response[i].name.french + ' ' + response[i].type
-                    ul.append(NewLi)
+                    newul.append(NewLi)
                 }
             }
+        })
+        reset.addEventListener("click", function(){
+            let ul = document.querySelector('ul')
+            ul.remove()
         })
     })
     .catch((error) => console.log(error))

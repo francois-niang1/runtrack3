@@ -13,9 +13,7 @@
     </select>
 
     <button id='filter'> Filtrer </button>
+    <button id='reset'> Reset </button>
 
-    <ul>
-
-    </ul>
 </body>
 </html>
