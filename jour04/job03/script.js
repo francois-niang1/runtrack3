@@ -16,30 +16,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
     .then((response) => {
         // console.log(response)
 
-                    /*display option select*/ 
+                    /*display option select*/
         for (let i = 0; i < response.length ; i++ ){
             let typePokemon = response[i].type
-            console.log[typePokemon]
             typeList.push(typePokemon.toString())
-
-            
-            // NewOpt.innerHTML = response[i].type
-            // select.append(NewOpt)
         }
 
-        //             /*Retirer les doublons*/
-
+                    /*Retirer les doublons*/
         let newList = typeList.filter(function(ele , pos){
             return typeList.indexOf(ele) == pos;
         })
 
+                    /* Display Select no doublons */
+        for (let i = 0; i < newList.length ; i++ ){
+            let NewOpt = document.createElement('option')
+            NewOpt.innerHTML = newList[i]
+            select.append(NewOpt)
+        }
 
-        //             /*display pokemon*/
-        // for (let i = 0; i < response.length ; i++ ){
-        //     let NewLi = document.createElement('li')
-        //     NewLi.innerHTML = response[i].name.french
-        //     ul.append(NewLi)
-        // }
+
+                    /*display pokemon*/
+        for (let i = 0; i < response.length ; i++ ){
+            let NewLi = document.createElement('li')
+            NewLi.innerHTML = response[i].name.french
+            ul.append(NewLi)
+        }
     })
     .catch((error) => console.log(error))
 
