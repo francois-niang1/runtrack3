@@ -8,16 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
-        <input id='id' type="text" placeholder="id">
-        <input id='name' type="text" placeholder="nom">
-        
-        <select name="type" id="type">
-    
-        </select>
-    
-        <button type='filter'> Filtrer </button>
-    </form>
+
+    <select name="type" id="type">
+    </select>
+
+    <button id='filter'> Filtrer </button>
+
     <ul>
 
     </ul>
