@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let email = document.getElementById('email')
     let password = document.getElementById('password')
     let ConfPassword = document.getElementById('ConfPassword')
+    let register = document.querySelector('button')
 
     let regexLowerCase = /[a-z]{1,}/
     let regexUpperCase = /[A-Z]{1,}/
@@ -127,6 +128,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 ConfPassword.style.color ='black'
             }
         }
-        
+    })
+
+    register.addEventListener('click', function(){
+        console.log(firstname.value)
+        console.log(lastname.value)
+        console.log(email.value)
+        console.log(password.value)
+        console.log(ConfPassword.value)
     })
 })
