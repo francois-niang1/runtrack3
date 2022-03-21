@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         else{
             p[0].textContent = ''
             firstname.style.color ='black'
+            firstname.style.borderColor ='black'
         }
     })
     
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         else{
             p[1].textContent = ''
             lastname.style.color ='black'
+            lastname.style.borderColor ='black'
         }
     })
     
@@ -64,6 +66,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             p[2].textContent = 'Email Valide'
             p[2].style.color = 'green'
             email.style.color ='black'
+            email.style.borderColor ='black'
         }
     })
     
@@ -126,15 +129,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 p[7].textContent = 'Mot de passe Valide'
                 p[7].style.color = 'green'
                 ConfPassword.style.color ='black'
+                ConfPassword.style.borderColor ='black'
             }
         }
     })
 
-    register.addEventListener('click', function(){
-        console.log(firstname.value)
-        console.log(lastname.value)
-        console.log(email.value)
-        console.log(password.value)
-        console.log(ConfPassword.value)
+    register.addEventListener('click', function() {
+        let fd = new FormData();
+        fd.append("prenom", firstname.value)
+        fd.append("nom", lastname.value)
+        fd.append("email", email.value)
+        fd.append("password", password.value)
+        fd.append("ConfPassword", ConfPassword.value);
+        fetch('traitement-register.php', {method: "POST", body: fd})
+        .then(response => response.text())
+        .then(data => console.log(data));
     })
 })

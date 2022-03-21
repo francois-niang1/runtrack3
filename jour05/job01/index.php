@@ -20,6 +20,12 @@ if(!isset($_SESSION['login'])){?>
     <title>index</title>
 </head>
 <body>
-    
+<?php
+    if(isset($_SESSION)){
+        echo "<p>";
+        echo "Bonjour  ".$_SESSION['name'];
+        echo "</p>";
+    }
+    ?>
 </body>
 </html>
