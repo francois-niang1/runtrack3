@@ -67,7 +67,9 @@
                 <button type="button" class="btn btn-danger">
                     Rebooter le Monde
                 </button>
-
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only"></span>
+                </div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination mt-4 justify-content-end">
                         <li class="page-item"><a class="page-link" href="#"><<</a></li>
