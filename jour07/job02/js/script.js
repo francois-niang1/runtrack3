@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let li8 = document.getElementById('li8')
     let li9 = document.getElementById('li9')
     let li10 = document.getElementById('li10')
+    let arrowL = document.getElementById('arrowL')
+    let arrowR = document.getElementById('arrowR')
+    let test = document.getElementById('#progress-bar')
 
     btn_reboot.addEventListener('click', function(){
         text_jumbotron.innerHTML = 'Chaque fois qu\'une lumière brûle deux fois plus, elle brille deux fois moins longtemps. Et vous avez brûlé on ne peut plus brillamment, Roy.'
@@ -28,6 +31,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     })
     btn3.addEventListener('click', function(){
         text_jumbotron.innerHTML = 'le bouton marche gros'
+    })
+
+    arrowL.addEventListener('click', function(){
+        a = document.getElementById('progress-bar').style.width
+        b = a.replace('%', '');
+        b -= '10';
+        b = b+'%'
+        document.getElementById('progress-bar').style.width = b
+    })
+
+    arrowR.addEventListener('click', function(){
+        a = document.getElementById('progress-bar').style.width
+        b = a.replace('%', '');
+        b -= '-10';
+        b = b+'%'
+        document.getElementById('progress-bar').style.width = b
     })
 
     li1.addEventListener('click', function(){
