@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let li10 = document.getElementById('li10')
     let arrowL = document.getElementById('arrowL')
     let arrowR = document.getElementById('arrowR')
-    let test = document.getElementById('#progress-bar')
+    let submit = document.getElementById('submit')
 
     btn_reboot.addEventListener('click', function(){
         text_jumbotron.innerHTML = 'Chaque fois qu\'une lumière brûle deux fois plus, elle brille deux fois moins longtemps. Et vous avez brûlé on ne peut plus brillamment, Roy.'
@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         b -= '-10';
         b = b+'%'
         document.getElementById('progress-bar').style.width = b
+    })
+
+    submit.addEventListener('click', function(){
+
     })
 
     li1.addEventListener('click', function(){
@@ -170,4 +174,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById("li10").classList.add('active');
     })
 })
+
+
+function DGC(){
+    var dgcCode = [68, 71, 67];
+    var dgcCodePosition = 0;
+
+    document.addEventListener('keydown', function(e){
+        var key = e.keyCode;
+        var requiredKey = dgcCode[dgcCodePosition];
+        if(key == requiredKey){
+            dgcCodePosition++;
+            if (dgcCodePosition == dgcCode.length) {
+                workingDGC();
+                dgcCodePosition = 0;
+            }
+        }
+        else{
+        dgcCodePosition = 0;
+        }
+    })
+
+    function workingDGC(){
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+
+        modal.style.display = "block";
+
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    }
+}
 
