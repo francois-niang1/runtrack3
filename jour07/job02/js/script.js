@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let arrowL = document.getElementById('arrowL')
     let arrowR = document.getElementById('arrowR')
     let submit = document.getElementById('submit')
+    let password =document.getElementById('password')
+    let email =document.getElementById('email')
+    let load =document.getElementById('loading')
 
     btn_reboot.addEventListener('click', function(){
         text_jumbotron.innerHTML = 'Chaque fois qu\'une lumière brûle deux fois plus, elle brille deux fois moins longtemps. Et vous avez brûlé on ne peut plus brillamment, Roy.'
@@ -50,7 +53,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     })
 
     submit.addEventListener('click', function(){
-
+        if (email.value != '' && password.value != ''){
+            console.log('ok')
+            load.classList.remove('text-primary')
+            load.classList.add('text-warning')
+        }
+        else{
+            alert('Remplir les champs Email et mot de passe')
+        }
     })
 
     li1.addEventListener('click', function(){
@@ -210,5 +220,6 @@ function DGC(){
             }
         }
     }
+
 }
 
